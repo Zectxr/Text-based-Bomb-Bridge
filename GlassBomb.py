@@ -1,9 +1,10 @@
 import random
 import time
 
-# Zec is here, 19, birthday - 28/12/2022
+#
+field_area = ["⬛" * 50 for i in range(20)] + [("⬛"+"⬜")*(25)] + [("⬜"+"⬛")*(25)]
 
-field_area = ["⬛" * 50 for i in range(20)] + ["⬜" * 50]
+
 
 # initialize player character x coordinate and y coordinate and player health points
 player = {
@@ -14,13 +15,13 @@ player = {
 
 # value of how many do you want to be placed
 
-difficulty = 50
+difficulty = 500
 
 # create 50 invisible bombs at random locations
 
 bombs = []
-for i in range(50):
-    x = random.randint(1, 50)
+for i in range(difficulty):
+    x = random.randint(0, 50)
     y = random.randint(1, 19)
     bombs.append((y, x, True)) # Invisible or Visible bomb: True & False
 
@@ -89,7 +90,7 @@ while restart_game:
             player["y"] = 0
             bombs = []
             for i in range(difficulty):  # difficulty
-                x = random.randint(1, 50)
+                x = random.randint(0, 50)
                 y = random.randint(1, 19)
                 bombs.append((y, x))
                 if player["x"] == x and player["y"] == y:
